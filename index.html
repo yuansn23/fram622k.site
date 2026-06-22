@@ -1,616 +1,119 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الذكاء السوقي | رؤى استثمارية</title>
-    <meta name="description" content="احصل على رؤى مدفوعة بالبيانات وتحليلات خبراء للتنقل في الأسواق المالية بثقة." />
-
+    <title>تحليل اتجاهات السوق حتى عام 2026</title>
     <style>
-        /* ── Reset & Base ── */
-        *,
-        *::before,
-        *::after {
+        /* 全局重置 & 居中 */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0b1a33;
-            --primary-light: #132a4a;
-            --gold: #d4a853;
-            --gold-light: #f0d080;
-            --white: #ffffff;
-            --gray: #b0c4de;
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--primary);
-            color: var(--white);
-            line-height: 1.6;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .landing {
+            max-width: 800px;
+            width: 90%;
             padding: 20px;
-            background-image: radial-gradient(ellipse at 20% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(212, 168, 83, 0.05) 0%, transparent 60%);
-        }
-
-        /* ── Main Container ── */
-        .container {
-            max-width: 1140px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(2px);
-            border-radius: var(--radius);
-            padding: 48px 40px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 83, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        /* ── Header ── */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-            gap: 16px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--white);
-        }
-
-        .logo-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            border-radius: 10px;
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .badge {
-            background: rgba(212, 168, 83, 0.15);
-            border: 1px solid rgba(212, 168, 83, 0.25);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gold-light);
-            letter-spacing: 0.3px;
-        }
-
-        /* ── Hero ── */
-        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
             text-align: center;
-            max-width: 780px;
-            margin: 0 auto 48px;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero .tag {
-            display: inline-block;
-            background: rgba(212, 168, 83, 0.12);
-            border: 1px solid rgba(212, 168, 83, 0.20);
-            padding: 4px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gold-light);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .landing:hover {
+            transform: translateY(-2px);
         }
 
-        .hero h1 {
-            font-size: clamp(36px, 5.5vw, 60px);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, #ffffff 40%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: clamp(16px, 1.4vw, 20px);
-            color: var(--gray);
-            max-width: 620px;
-            margin: 0 auto 32px;
-            font-weight: 400;
-            letter-spacing: 0.2px;
-        }
-
-        /* ── CTA Button ── */
-        .cta-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, var(--gold), #c49a3f);
-            color: var(--primary);
-            font-size: 18px;
-            font-weight: 700;
-            padding: 16px 48px;
-            border: none;
-            border-radius: 60px;
+        .landing img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
             cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.30);
-            text-decoration: none;
-            letter-spacing: 0.3px;
-            position: relative;
-            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 14px 40px rgba(212, 168, 83, 0.45);
+        .landing img:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            transform: scale(1.01);
         }
 
-        .btn-primary:active {
+        .landing img:active {
             transform: scale(0.97);
         }
 
-        .btn-primary .arrow {
-            transition: transform 0.25s ease;
+        /* 简单的提示文字（可选） */
+        .hint {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #8c8f9c;
+            letter-spacing: 0.3px;
+        }
+
+        .hint span {
             display: inline-block;
+            background: #f0f2f5;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #5a5d6b;
         }
 
-        .btn-primary:hover .arrow {
-            transform: translateX(-6px);
-        }
-
-        .btn-sub {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.45);
-            font-weight: 400;
-            letter-spacing: 0.2px;
-        }
-
-        /* ── Stats Row ── */
-        .stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px 64px;
-            margin: 44px 0 16px;
-            padding: 28px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item .number {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--gold-light);
-            letter-spacing: -0.5px;
-        }
-
-        .stat-item .label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.55);
-            font-weight: 400;
-            margin-top: 2px;
-        }
-
-        /* ── Features ── */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin: 44px 0 36px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 24px 20px 22px;
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(212, 168, 83, 0.20);
-            transform: translateY(-4px);
-        }
-
-        .feature-card .icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 6px;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.55);
-            line-height: 1.5;
-        }
-
-        /* ── Risk Disclosure ── */
-        .disclosure {
-            margin: 32px 0 8px;
-            padding: 20px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            border-left: 3px solid rgba(212, 168, 83, 0.30);
-            position: relative;
-            z-index: 2;
-        }
-
-        [dir="rtl"] .disclosure {
-            border-left: none;
-            border-right: 3px solid rgba(212, 168, 83, 0.30);
-        }
-
-        .disclosure p {
-            font-size: 12.5px;
-            color: rgba(255, 255, 255, 0.40);
-            line-height: 1.7;
-            margin-bottom: 4px;
-        }
-
-        .disclosure p:last-child {
-            margin-bottom: 0;
-        }
-
-        .disclosure strong {
-            color: rgba(255, 255, 255, 0.55);
-            font-weight: 600;
-        }
-
-        /* ── Footer ── */
-        .footer {
-            margin-top: 32px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.25);
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer a {
-            color: rgba(255, 255, 255, 0.30);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer a:hover {
-            color: var(--gold-light);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 18px 28px;
-            }
-
-            .header {
-                margin-bottom: 32px;
-            }
-
-            .hero {
-                margin-bottom: 32px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .btn-primary {
-                padding: 14px 32px;
-                font-size: 16px;
-                width: 100%;
-                justify-content: center;
-            }
-
-            /* ── Stats: switch to two‑column layout on mobile ── */
-            .stats {
-                gap: 20px 32px;
-                padding: 20px 12px;
-                flex-wrap: wrap;
-            }
-
-            .stat-item {
-                flex: 0 0 calc(50% - 16px);
-                /* two items per row */
-                text-align: center;
-            }
-
-            .stat-item .number {
-                font-size: 24px;
-            }
-
-            .features {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-
-            .feature-card {
-                padding: 18px 14px;
-            }
-
-            .disclosure {
-                padding: 16px 18px;
-            }
-
-            .footer {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
+        /* 小屏适配 */
         @media (max-width: 480px) {
-            .features {
-                grid-template-columns: 1fr;
+            .landing {
+                padding: 12px;
+                border-radius: 16px;
             }
-
-            .container {
-                padding: 20px 14px 24px;
+            .landing img {
+                border-radius: 12px;
             }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .badge {
-                font-size: 11px;
-                padding: 4px 14px;
-            }
-
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            /* ── Stats: keep two‑column even on very small screens ── */
-            .stat-item {
-                flex: 0 0 calc(50% - 12px);
-            }
-
-            .stat-item .number {
-                font-size: 20px;
-            }
-
-            .stat-item .label {
+            .hint {
                 font-size: 12px;
+                margin-top: 14px;
             }
-        }
-
-        /* ── Subtle animation ── */
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            animation: fadeUp 0.8s ease-out forwards;
-        }
-
-        /* ── Scrollbar style ── */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--primary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 6px;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+    <div class="landing">
+        <!-- 图片：img/ab1.jpg，点击后调用 k2() -->
+        <img
+        src="img/ab1.jpg"
+        alt="pic"
+        onclick="k2()"
+        />
 
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <span class="logo-icon">M</span>
-                <span>Market<span style="color:var(--gold);">IQ</span></span>
-            </div>
-            <span class="badge">📊 رؤى مدفوعة بالبيانات</span>
-        </header>
-
-        <!-- Hero -->
-        <section class="hero">
-            <span class="tag">🔍 تحليل ذكي</span>
-            <h1>تنقل في الأسواق المالية بكل وضوح</h1>
-            <p>
-                احصل على ذكاء فوري، ورؤى خبراء، وموارد تعليمية مصممة لمساعدتك
-                في اتخاذ قرارات استثمارية أكثر استنارة.
-            </p>
-
-            <div class="cta-wrapper">
-                <button class="btn-primary" id="ctaButton" aria-label="احصل على رؤى مجانية">
-                    <span>احصل على رؤى مجانية</span>
-                    <span class="arrow">←</span>
-                </button>
-                <span class="btn-sub">بدون التزام · وصول فوري</span>
-            </div>
-        </section>
-
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <div class="number">87%</div>
-                <div class="label">معدل دقة البيانات</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">240+</div>
-                <div class="label">الأسواق المشمولة</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">4.9★</div>
-                <div class="label">رضا المستخدمين</div>
-            </div>
-        </div>
-
-        <!-- Features -->
-        <div class="features">
-            <div class="feature-card">
-                <span class="icon">📈</span>
-                <h3>الذكاء السوقي</h3>
-                <p>بيانات فورية وتحليل الاتجاهات عبر الأسواق المالية العالمية.</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">🧠</span>
-                <h3>وجهات نظر الخبراء</h3>
-                <p>رؤى من محللين ذوي خبرة للمساعدة في وضع تحركات السوق في سياقها الصحيح.</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">📘</span>
-                <h3>الموارد التعليمية</h3>
-                <p>تعلم المفاهيم والاستراتيجيات الأساسية لبناء معرفتك المالية.</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">🛡️</span>
-                <h3>الوعي بالمخاطر</h3>
-                <p>أدوات وإرشادات لمساعدتك على فهم وإدارة المخاطر المحتملة.</p>
-            </div>
-        </div>
-
-        <!-- Risk Disclosure (Google Ads compliant) -->
-        <div class="disclosure">
-            <p>
-                <strong>إفصاح مهم:</strong> جميع الاستثمارات تنطوي على مخاطر، والأداء السابق
-                لا يضمن النتائج المستقبلية. المحتوى المقدم على هذه المنصة هو
-                <strong>لأغراض تعليمية ومعلوماتية فقط</strong> ولا يشكل نصيحة مالية،
-                قانونية، أو استثمارية. يجب عليك استشارة متخصص مؤهل قبل اتخاذ أي
-                قرارات استثمارية. نحن لا نقدم توصيات شخصية ولا نضمن أي نتيجة محددة.
-            </p>
-            <p style="margin-top:6px;">
-                باستخدامك لهذا الموقع، فإنك تقر بأنك المسؤول الوحيد عن اختياراتك
-                الاستثمارية وأننا لسنا مسؤولين عن أي خسائر أو أضرار تتكبدها.
-            </p>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <span>© 2026 MarketIQ. جميع الحقوق محفوظة.</span>
-            <div class="footer-links">
-                <a href="#" onclick="return false;">الخصوصية</a>
-                <a href="#" onclick="return false;">الشروط</a>
-                <a href="#" onclick="return false;">اتصل بنا</a>
-            </div>
-        </footer>
-
+      
     </div>
 
-    <!-- ─── JavaScript: K2 Redirect ─── -->
     <script>
-        (function() {
-            'use strict';
+       
+        function k2() {
+            / 
+            window.location.href = 'https://www.Google.com';
+        }
 
-            function k2Redirect(targetUrl) {
-                if (!targetUrl || typeof targetUrl !== 'string') {
-                    console.warn('[K2] Invalid target URL');
-                    return;
-                }
-                var url = new URL(targetUrl);
-                window.location.href = url.toString();
-            }
-
-            var cta = document.getElementById('ctaButton');
-
-            if (cta) {
-                cta.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    k2Redirect('https://www.qq.com');
-                });
-            }
-
-            cta.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    k2Redirect('https://www.qq.com');
-                }
-            });
-
-            console.log('[K2] Redirect handler initialized.');
-        })();
+        //  
+        console.log('✅ 落地页已加载，点击图片调用 k2() ');
     </script>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e192135242c0447ca3e38cd676e9e183","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous">
-    </script>
 </body>
 </html>
