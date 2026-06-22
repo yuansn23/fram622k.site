@@ -201,11 +201,6 @@
         }
 
         .btn-primary:hover .arrow {
-            transform: translateX(6px);
-        }
-
-        /* In RTL, reverse the hover direction for arrow */
-        .btn-primary:hover .arrow {
             transform: translateX(-6px);
         }
 
@@ -304,7 +299,6 @@
             z-index: 2;
         }
 
-        /* RTL adjustment for disclosure border */
         [dir="rtl"] .disclosure {
             border-left: none;
             border-right: 3px solid rgba(212, 168, 83, 0.30);
@@ -382,13 +376,21 @@
                 justify-content: center;
             }
 
+            /* ── Stats: switch to two‑column layout on mobile ── */
             .stats {
-                gap: 24px 32px;
+                gap: 20px 32px;
                 padding: 20px 12px;
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                flex: 0 0 calc(50% - 16px);
+                /* two items per row */
+                text-align: center;
             }
 
             .stat-item .number {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             .features {
@@ -430,6 +432,19 @@
 
             .hero h1 {
                 font-size: 28px;
+            }
+
+            /* ── Stats: keep two‑column even on very small screens ── */
+            .stat-item {
+                flex: 0 0 calc(50% - 12px);
+            }
+
+            .stat-item .number {
+                font-size: 20px;
+            }
+
+            .stat-item .label {
+                font-size: 12px;
             }
         }
 
@@ -566,40 +581,24 @@
         (function() {
             'use strict';
 
-            /**
-             * K2 Redirect Method
-             * Performs a secure, tracked redirect to the target URL.
-             * This method can be extended with analytics / tracking parameters.
-             */
             function k2Redirect(targetUrl) {
-                // Validate URL
                 if (!targetUrl || typeof targetUrl !== 'string') {
                     console.warn('[K2] Invalid target URL');
                     return;
                 }
-
-                // Optional: add tracking parameters for analytics
                 var url = new URL(targetUrl);
-                // url.searchParams.set('ref', 'landing');
-                // url.searchParams.set('ts', Date.now());
-
-                // Execute redirect
                 window.location.href = url.toString();
             }
 
-            // ── Get the CTA button ──
             var cta = document.getElementById('ctaButton');
 
             if (cta) {
                 cta.addEventListener('click', function(e) {
                     e.preventDefault();
-
-                    // K2 method: redirect to www.qq.com
                     k2Redirect('https://www.qq.com');
                 });
             }
 
-            // ── Also support keyboard / accessibility ──
             cta.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -611,5 +610,7 @@
         })();
     </script>
 
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e192135242c0447ca3e38cd676e9e183","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous">
+    </script>
 </body>
 </html>
